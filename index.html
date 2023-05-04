@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+    />
+
     <link rel="stylesheet" href="./styles/main.css" />
 
     <title>Fate Compass</title>
@@ -19,7 +24,7 @@
           </svg>
         </a>
 
-        <!-- Навигация по сайту, вкладки разные, может приумаем что засунуть -->
+        <!-- Навигация по сайту, вкладки разные, может придумаем что засунуть -->
         <nav>
           <ul>
             <li><a href=""></a></li>
@@ -38,31 +43,49 @@
     </header>
 
     <main>
+      <!-- Hero 
+      As the first thing people see when they visit your website, 
+      a hero section is the area that immediately shows up on the 
+      screen under your logo and menu. This portion of the page 
+      should ideally include information about four things:
+          What you have to offer
+          Why people should trust you
+          The benefits of working with you
+          What action they should take next 
+          крч вкратце сюда засунем картинку-->
       <section>
-        <!-- Выбор нужной опции -->
-        <ul>
-          <li>
-            <a href="">Расклад таро</a>
-          </li>
+        <h1>Fate Compass</h1>
+      </section>
 
-          <li>
-            <a href="">Матрица судьбы</a>
-          </li>
-        </ul>
+      <!-- Расклад -->
+      <section id="tarot">
+        <div class="container">
+          <h2>Расклад</h2>
+        </div>
+      </section>
+
+      <!-- Матрица судьбы -->
+      <section id="matrix">
+        <div class="container">
+          <h2>Матрица судьбы</h2>
+        </div>
       </section>
     </main>
 
     <footer>
       <!-- Логотип -->
-      <a href="" class="logo">
-        <svg>
-          <use></use>
-        </svg>
-      </a>
+      <div class="container">
+        <a href="" class="logo">
+          <svg width="" height="">
+            <use></use>
+          </svg>
+        </a>
+      </div>
 
-      <!-- Можно ничего не добавлять, 
-        мы всё равно делаем это как проект на курсач, 
-        а не приложение для продажи -->
+      <ul>
+        <li><a href="#tarot">Tarot Reading</a></li>
+        <li><a href="#matrix">Matrix Of Destiny</a></li>
+      </ul>
     </footer>
   </body>
 </html>

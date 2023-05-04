@@ -3,7 +3,14 @@
 @import url('./utils/utils.css');
 
 /* base  */
+@import url('./base/reset.css');
+@import url('./base/common.css');
 
 /* components  */
 
 /* layout */
+@import url('./layout/header.css');
+@import url('./layout/hero.css');
+@import url('./layout/tarot.css');
+@import url('./layout/matrix.css');
+@import url('./layout/footer.css');
