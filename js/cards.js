@@ -1,21 +1,21 @@
 export const cards = [
     {
-        name: "shit",
+        name: "The Fool",
         picture: "shit",
         desdcription: "shit",
     },
     {
-        name: "bitch",
+        name: "The Magician",
         picture: "bitch",
         desdcription: "bitch",
     },
     {
-        name: "fuck",
+        name: "The High Priestess",
         picture: "fuck",
         desdcription: "fuck",
     },
     {
-        name: "hodov",
+        name: "The Empress",
         picture: "hodov",
         desdcription: "hodov",
     },
