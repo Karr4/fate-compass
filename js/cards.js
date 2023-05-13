@@ -1,22 +1,112 @@
 export const cards = [
-    {
-        name: "The Fool",
-        picture: "shit",
-        desdcription: "shit",
-    },
-    {
-        name: "The Magician",
-        picture: "bitch",
-        desdcription: "bitch",
-    },
-    {
-        name: "The High Priestess",
-        picture: "fuck",
-        desdcription: "fuck",
-    },
-    {
-        name: "The Empress",
-        picture: "hodov",
-        desdcription: "hodov",
-    },
+  {
+    name: "The Fool",
+    picture: "shit",
+    desdcription: "Легкий, безтурботний, розкутий,грайливий, непередбачуваний.",
+  },
+  {
+    name: "The Magician",
+    picture: "bitch",
+    desdcription: "Воля. Активність, ініціатива, спритність. Комунікація, спілкування, здатність переконувати інших.",
+  },
+  {
+    name: "The High Priestess",
+    picture: "fuck",
+    desdcription: "Ситуація, в якій немає визначеності та ясності, присутнійсекрет, таємниця,  інтрига.",
+  },
+  {
+    name: "The Empress",
+    picture: "hodov",
+    desdcription: "Зростання, розвиток, родючість, сили та ритми природи. Життєві сили. Гарне здоров'я.",
+  },
+  {
+    name: "The Empreror",
+    picture: "hodov",
+    desdcription: "Порядок, дисциплінованість, стабільність, послідовність, практичний розум.",
+  },
+  {
+    name: "The Hierophant",
+    picture: "hodov",
+    desdcription: "Традиція. Традиційний підхід. Мораль. Совість. Етика. Релігія. Навчання всіх прояви. Освіта",
+  },
+  {
+    name: "The Lovers",
+    picture: "hodov",
+    desdcription: "Чекають справи амурні. Побачення. Спілкування, контакти. Виникне ситуація вибору.",
+  },
+  {
+    name: "The Chariot",
+    picture: "hodov",
+    desdcription: "Дорога. Звістки,отримані по телефону, факсу, листом тощо. Перемога.",
+  },
+  {
+    name: "Strength",
+    picture: "hodov",
+    desdcription: "Перевага духовного над матеріальним. Контакт з інстинктивними, природними імпульсами та бажаннями.",
+  },
+  {
+    name: "The Hermit",
+    picture: "hodov",
+    desdcription: "Самотність. Роздуми, самопоглибленість. Перебуванняна самоті, коли слід заново оцінити життя, зв'язки та цілі"
+  },
+  {
+    name: "Wheel of Fortune",
+    picture: "hodov",
+    desdcription: "Справи йдуть вгору. Несподівані зміни, частіше на краще. Виграш, сюрприз. Приємні враження.",
+  },
+  {
+    name: "The Justice",
+    picture: "hodov",
+    desdcription: "Обговорення чогось. Офіційні відносини. Судовий процес. Іспит. Перевірки держструктурами.",
+  },
+  {
+    name: "The Hanged Man",
+    picture: "hodov",
+    desdcription: "Зависла, болісна ситуація. Втрата. Капітуляція. Завмирання. Відмова від діяльності.",
+  },
+  {
+    name: "Death",
+    picture: "hodov",
+    desdcription: "Зміни. Переїзди. Розставання. Ритуали переходу, похорон. Перероблення чогось.",
+  },
+  {
+    name: "Temperance",
+    picture: "hodov",
+    desdcription: "Вірна міра. Золота середина, гармонія.Мистецтво поєднувати протилежності.",
+  },
+  {
+    name: "The Devil",
+    picture: "hodov",
+    desdcription: "Зустріч зі спокусами та спокусниками. Аморальні, протизаконні вчинки, угода із совістю. Застілля, вечірка",
+  },
+  {
+    name: "The Tower",
+    picture: "hodov",
+    desdcription: "Різкі зміни, форс-мажорні обставини. Революція.",
+  },
+  {
+    name: "The Star",
+    picture: "hodov",
+    desdcription: "Інтуїтивне прозріння. Натхнення. Робота з енергіями. З'являться нові цілі, задуми. Сприятливі знаки",
+  },
+  {
+    name: "The Moon",
+    picture: "hodov",
+    desdcription: "Хтось створює люзії обманює вас. Таємні вороги, таємні впливу. Прихована небезпека.",
+  },
+  {
+    name: "The Sun",
+    picture: "hodov",
+    desdcription: "Відчуття повноти життя, глибокого внутрішнього задоволення, приплив енергії.Радість, щастя",
+  },
+  {
+    name: "Judgement",
+    picture: "hodov",
+    desdcription: "Перехід на якісно новий рівень. Новий етап в житті. Відродження через оновлення, визволення від старих. Зміна на краще.",
+  },
+  {
+    name: "The World",
+    picture: "hodov",
+    desdcription: "Благополучне завершення, закінчення циклу. Досягнення мети, отримання нагороди. Успіх.",
+  },
 ];
