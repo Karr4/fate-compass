@@ -53,19 +53,27 @@
           The benefits of working with you
           What action they should take next 
           крч вкратце сюда засунем картинку-->
-      <section>
+      <section class="section">
         <h1>Fate Compass</h1>
       </section>
 
       <!-- Расклад -->
-      <section id="tarot">
+      <section class="section" id="tarot">
         <div class="container">
           <h2>Расклад</h2>
+
+          <div class="tarot-read">
+            <button class="button tarot-button" type="button">
+              Generate tarot cards
+            </button>
+
+            <ul class="tarot-cards"></ul>
+          </div>
         </div>
       </section>
 
       <!-- Матрица судьбы -->
-      <section id="matrix">
+      <section class="section" id="matrix">
         <div class="container">
           <h2>Матрица судьбы</h2>
 
@@ -80,7 +88,7 @@
               />
             </label>
 
-            <button type="submit">Go!</button>
+            <button class="button" type="submit">Go!</button>
           </form>
 
           <ul class="matrix"></ul>
