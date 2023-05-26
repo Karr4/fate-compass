@@ -48,5 +48,5 @@ function markupCreator(array) {
         </li>`
     ).join("");
 
-    matrix.insertAdjacentHTML("beforeend", markup); 
+    refs.tarotRead.insertAdjacentHTML("beforeend", markup); 
 }

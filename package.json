@@ -1,0 +1,32 @@
+{
+  "name": "fate-compass",
+  "version": "2.0.0",
+  "description": "",
+  "homepage": "https://Karr4.github.io/fate-compass",
+  "scripts": {
+    "start": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /fate-compass/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Karr4/fate-compass.git"
+  },
+  "keywords": [],
+  "author": "Kirill Korchakovskyi <XGon20987@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Karr4/fate-compass/issues"
+  },
+  "dependencies": {
+    "firebase": "^9.22.0",
+    "modern-normalize": "^1.1.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.6.0",
+    "parcel": "^2.6.0",
+    "parcel-reporter-clean-dist": "^1.0.4",
+    "posthtml-include": "^1.7.4",
+    "process": "^0.11.10"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead"
+}

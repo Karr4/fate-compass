@@ -37,22 +37,68 @@
         <!-- Аккаунт -->
         <div class="account">
           <p class="account-name"></p>
-          <img src="" alt="Avatar" class="account-avatar" />
+          <!-- <img src="" alt="Avatar" class="account-avatar" /> -->
+        </div>
+
+        <!-- Login -->
+        <div class="signin">
+          <form class="signin-form">
+            <label>
+              Email
+              <input type="email" name="email" placeholder="Email..." />
+            </label>
+
+            <label>
+              Password
+              <input
+                type="password"
+                name="password"
+                placeholder="Password..."
+              />
+            </label>
+
+            <label>
+              Password
+              <input
+                type="password"
+                name="passwordMatch"
+                placeholder="Retype your password..."
+              />
+            </label>
+
+            <button type="submit">Create Account</button>
+          </form>
+        </div>
+
+        <div class="login">
+          <form class="login-form">
+            <label>
+              Email
+              <input type="email" name="email" placeholder="Email..." />
+            </label>
+
+            <label>
+              Password
+              <input
+                type="password"
+                name="password"
+                placeholder="Password..."
+              />
+            </label>
+
+            <button type="submit">Sign In</button>
+          </form>
+        </div>
+
+        <div class="logout">
+          <p>Welcome <span data-user></span></p>
+          <button type="button" class="logout-btn">Sign Out</button>
         </div>
       </div>
     </header>
 
     <main>
-      <!-- Hero 
-      As the first thing people see when they visit your website, 
-      a hero section is the area that immediately shows up on the 
-      screen under your logo and menu. This portion of the page 
-      should ideally include information about four things:
-          What you have to offer
-          Why people should trust you
-          The benefits of working with you
-          What action they should take next 
-          крч вкратце сюда засунем картинку-->
+      <!-- Hero -->
       <section class="section">
         <h1>Fate Compass</h1>
       </section>
@@ -112,6 +158,6 @@
       </ul>
     </footer>
 
-    <script type="module" src="/main.js"></script>
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
