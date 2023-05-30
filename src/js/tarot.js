@@ -1,15 +1,19 @@
-import { cards } from './cards.js';
+import { getRandomCards } from './cards.js'
 
 const refs = {
     startBtn: document.querySelector(".tarot-button"),
     tarotRead: document.querySelector(".tarot-cards"),
 }
 
+getRandomCards()
+    .then(cards => {
+        console.log(cards)
+    })
+    .catch(error => console.log(error.message));
+
 refs.startBtn.addEventListener("click", (e) => {
     const prevCards = document.querySelectorAll(".tarot__card").length;
     prevCardsDestroyer(prevCards);
-
-    const tarotCards = getRandomCards();
 
     markupCreator(tarotCards);
 });
@@ -19,22 +23,6 @@ function prevCardsDestroyer(numberOfItems) {
         const card = document.querySelector(".tarot__card");
         card.remove();
     }
-}
-
-function getRandomCards() {
-    const arrayOfCards = [];
-
-    for (let i = 0; i < 6; i += 1) {
-        let random = Math.floor(Math.random() * (22 - 1) + 1);
-
-        while (arrayOfCards.includes(cards[random])) {
-            random = Math.floor(Math.random() * (22 - 1) + 1);
-        }
-
-        arrayOfCards.push(cards[random]);
-    }
-
-    return arrayOfCards;
 }
 
 function markupCreator(array) {
