@@ -1,40 +1,35 @@
-import { getRandomCards } from './cards.js'
+import { prevStuffDestroyer } from './preveous-stuff-destroyer';
+import { getCards } from './cards.js'
 
 const refs = {
     startBtn: document.querySelector(".tarot-button"),
     tarotRead: document.querySelector(".tarot-cards"),
 }
 
-getRandomCards()
-    .then(cards => {
-        console.log(cards)
-    })
-    .catch(error => console.log(error.message));
-
 refs.startBtn.addEventListener("click", (e) => {
-    const prevCards = document.querySelectorAll(".tarot__card").length;
-    prevCardsDestroyer(prevCards);
+    // Removing preveous read
+    const dataAttribute = 'data-card'
+    prevStuffDestroyer(dataAttribute);
 
-    markupCreator(tarotCards);
+    // Fetching cards from the api
+    getCards()
+        .then(({ cards }) => {
+            console.log(cards);
+            // Addding cards to the page
+            markupCreator(cards);
+        })
+        .catch(error => console.log(error.message));  
 });
 
-function prevCardsDestroyer(numberOfItems) {
-    for (let i = 0; i < numberOfItems; i += 1) {
-        const card = document.querySelector(".tarot__card");
-        card.remove();
-    }
-}
-
 function markupCreator(array) {
-    // <img src="${element.picture}" width="360"/>
     const markup = array.map(element => 
-        `<li class="tarot__card">
+        `<li class="tarot__card" data-card>
             <div>
                 <h3>${element.name}</h3>
-                <p>${element.description}</p>
+                <p><span>Meaning up:</span> ${element.meaning_up}</p>
+                <p><span>Meaning reversed:</span> ${element.meaning_rev}</p>
             </div>
         </li>`
     ).join("");
-
     refs.tarotRead.insertAdjacentHTML("beforeend", markup); 
 }
