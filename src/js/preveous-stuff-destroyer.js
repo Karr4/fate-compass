@@ -1,6 +1,4 @@
-export const prevStuffDestroyer = (attributeName) => {
-    const elementsToDelete = document.querySelectorAll(`[${attributeName}]`);
-
+export const prevStuffDestroyer = (elementsToDelete) => {
     if (!elementsToDelete)
         return;
 

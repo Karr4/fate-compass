@@ -13,8 +13,8 @@ matrixForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
     // Removing the previous matrix from the page
-    const dataAttribute = 'data-delete';
-    prevStuffDestroyer(dataAttribute);
+    const prevMatrix = document.querySelectorAll(`[data-delete]`);
+    prevStuffDestroyer(prevMatrix);
 
     let date = matrixForm.birthday.value.split(".");  
 

@@ -8,13 +8,12 @@ const refs = {
 
 refs.startBtn.addEventListener("click", (e) => {
     // Removing preveous read
-    const dataAttribute = 'data-card'
-    prevStuffDestroyer(dataAttribute);
+    const prevCards = document.querySelectorAll(`[data-card]`)
+    prevStuffDestroyer(prevCards);
 
     // Fetching cards from the api
     getCards()
         .then(({ cards }) => {
-            console.log(cards);
             // Addding cards to the page
             markupCreator(cards);
         })

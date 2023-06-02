@@ -1,9 +1,9 @@
 import { initializeApp } from 'firebase/app'
 import {
-  getFirestore, collection, getDocs, onSnapshot, addDoc,
+  getFirestore, collection, onSnapshot, getDocs, addDoc,
   query, where
 } from 'firebase/firestore'
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth'
 
 const firebaseConfig = {
   apiKey: "AIzaSyCJxy5vpXS7f1dJ93rKe4eeCdNHYRq7lSc",
@@ -23,27 +23,6 @@ const usersRef = collection(db, 'users')
 
 let users = []
 
-// getDocs(usersRef)
-//   .then(snapshot => {
-//     // console.log(snapshot.docs)
-//     let books = []
-//     snapshot.docs.forEach(doc => {
-//       books.push({ ...doc.data(), id: doc.id })
-//     })
-//     console.log(books)
-//   })
-//   .catch(err => {
-//     console.log(err.message)
-//   })
-
-// onSnapshot(usersRef, (snapshot) => {
-//   let users = []
-//   snapshot.docs.forEach((doc) => {
-//     users.push({ ...doc.data(), id: doc.id })
-//   })
-//   console.log(users)
-// })
-
 let isVip = false
 
 const signIn = document.querySelector(".signin-form");
@@ -62,7 +41,7 @@ signIn.addEventListener("submit", (e) => {
       console.log(`Welcome to the gay club, ${cred.user.email}`);
 
       addDoc(usersRef, { 
-        email: email,
+        email: email.toLowerCase(),
         password: password,
         vipAccount: vipAccount,
       }).then(() => {
@@ -83,16 +62,16 @@ logIn.addEventListener("submit", (e) => {
     .then(cred => {
       console.log('Welcome back', cred.user.email)
 
-      const q = query(usersRef, where('email', '==', 'fakamakaka@gmail.com'))
-      console.log(q)
+      const q = query(usersRef, where('email', '==', cred.user.email))
 
-      onSnapshot(q, (snapshot) => {
-        snapshot.docs.forEach(doc => {
-          users.push({ ...doc.data() })
+      getDocs(q)
+        .then((snapshot) => {
+          snapshot.docs.forEach(doc => {
+            users.push({ ...doc.data() })
+          })
+          localStorage.setItem("isVip", JSON.stringify(users[0].vipAccount))
         })
-        isVip = users[0].vipAccount
-      })
-
+      users = []
       logIn.reset()
     })
     .catch(err => {
@@ -102,8 +81,9 @@ logIn.addEventListener("submit", (e) => {
   console.log("signed in");
 });
 
-const logOut = document.querySelector(".logout-btn")
-logOut.addEventListener("click", () => {
+const logOut = document.querySelector('.logout')
+const logOutBtn = document.querySelector('.logout-btn')
+logOutBtn.addEventListener("click", () => {
   signOut(auth)
     .then(() => {
       console.log('signed out')
@@ -113,91 +93,34 @@ logOut.addEventListener("click", () => {
     })
 });
 
-
-
-// create user
-// addDocs
-
-// login
-// check if user is a vip or anonymous
-// decide what to show on the website
-
-// sign out
-// poshel nahuy
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// const auth = getAuth();
-
-// const createUserForm = document.querySelector(".create-user-form");
-// const signInForm = document.querySelector(".sign-in-form");
-// const signOutBtn = document.querySelector(".sign-out-btn");
-
-// createUserForm.addEventListener("submit", (e) => {
-//   e.preventDefault();
-
-//   const email = createUserForm.querySelector('[name="email"]').value;
-//   const password = createUserForm.querySelector('[name="password"]').value;
-//   const retypedPassword = createUserForm.querySelector('[name="password-match"]').value;
-
-//   console.log(email, password, retypedPassword)
-
-//   if (password !== retypedPassword)
-//     return;
-
-//   createUserWithEmailAndPassword(auth, email, password, vipAccount)
-//     .then((userCredential) => {
-//       console.log("Welcome to the gay club!");
-//       const user = userCredential.user;
-//     })
-//     .catch((error) => {
-//       const errorCode = error.code;
-//       const errorMessage = error.message;
-//     });
+const tarotRead = document.querySelector('.tarot-read')
+const matrixRead = document.querySelector('.matrix-read')
+onAuthStateChanged(auth, (user) => {
+  const userWelcome = document.querySelector('[data-user]')
   
-//   console.log("created an account");
-// });
+  if (user !== null) {
+    userWelcome.textContent = `Welcome ${user.email}`
+    logOut.classList.remove('hidden')
+    logIn.classList.add('hidden')
+    signIn.classList.add('hidden')
+    
+    const timerId = setTimeout(() => {
+    // matrixRead.classList.add('hidden')
+    // tarotRead.classList.add('hidden')
+      isVip = localStorage.getItem('isVip')
+      if (isVip) {
+        console.log(isVip)
+        matrixRead.classList.remove('hidden')
+        tarotRead.classList.remove('hidden')  
+      }
+    }, 1000)
+    
+    return
+  }
 
-// signInForm.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   console.log("signed in");
-// });
+  userWelcome.textContent = ''
+  logOut.classList.add('hidden')
 
-// signOutBtn.addEventListener("click", () => {
-//   console.log("signed out");
-// });
-
+  logIn.classList.remove('hidden')
+  signIn.classList.remove('hidden')
+})

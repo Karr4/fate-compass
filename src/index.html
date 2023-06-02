@@ -91,7 +91,7 @@
         </div>
 
         <div class="logout">
-          <p>Welcome <span data-user></span></p>
+          <p data-user></p>
           <button type="button" class="logout-btn">Sign Out</button>
         </div>
       </div>
@@ -108,7 +108,7 @@
         <div class="container">
           <h2>Расклад</h2>
 
-          <div class="tarot-read">
+          <div class="tarot-read hidden">
             <button class="button tarot-button" type="button">
               Generate tarot cards
             </button>
@@ -123,27 +123,29 @@
         <div class="container">
           <h2>Матрица судьбы</h2>
 
-          <form class="matrix-form">
-            <label
-              >Birthday
-              <input
-                class="birthday"
-                type="text"
-                name="birthday"
-                placeholder="day.month.year"
-              />
-            </label>
+          <div class="matrix-read hidden">
+            <form class="matrix-form">
+              <label
+                >Birthday
+                <input
+                  class="birthday"
+                  type="text"
+                  name="birthday"
+                  placeholder="day.month.year"
+                />
+              </label>
 
-            <button class="button" type="submit">Go!</button>
-          </form>
+              <button class="button" type="submit">Go!</button>
+            </form>
 
-          <ul class="matrix"></ul>
+            <ul class="matrix"></ul>
 
-          <ul class="charts">
-            <ul class="physic"></ul>
-            <ul class="energy"></ul>
-            <ul class="emotions"></ul>
-          </ul>
+            <ul class="charts">
+              <ul class="physic"></ul>
+              <ul class="energy"></ul>
+              <ul class="emotions"></ul>
+            </ul>
+          </div>
         </div>
       </section>
     </main>
