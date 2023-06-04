@@ -8,4 +8,4 @@ const getCards = () =>  {
         });
 }
 
-export { getCards }
+export { getCards };
