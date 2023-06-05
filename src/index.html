@@ -27,20 +27,87 @@
         <!-- Навигация по сайту, вкладки разные, может придумаем что засунуть -->
         <nav>
           <ul>
-            <li><a href=""></a></li>
+            <li><button class="profile-btn" type="button">Profile</button></li>
             <li><a href=""></a></li>
             <li><a href=""></a></li>
             <li><a href=""></a></li>
           </ul>
         </nav>
+      </div>
+    </header>
 
-        <!-- Аккаунт -->
-        <div class="account">
-          <p class="account-name"></p>
-          <!-- <img src="" alt="Avatar" class="account-avatar" /> -->
+    <main>
+      <!-- Hero -->
+      <section class="section">
+        <h1 data-piska>Fate Compass</h1>
+      </section>
+
+      <!-- Расклад -->
+      <section class="section" id="tarot">
+        <div class="container">
+          <h2>Tarot Reading</h2>
+
+          <div class="tarot-read hidden">
+            <button class="button tarot-button" type="button">
+              Generate tarot cards
+            </button>
+
+            <ul class="tarot-cards"></ul>
+          </div>
         </div>
+      </section>
 
-        <!-- Login -->
+      <!-- Матрица судьбы -->
+      <section class="section" id="matrix">
+        <div class="container">
+          <h2>Fate Matrix</h2>
+
+          <div class="matrix-read hidden">
+            <form class="matrix-form">
+              <label
+                >Birthday
+                <input
+                  class="birthday"
+                  type="text"
+                  name="birthday"
+                  placeholder="day.month.year"
+                />
+              </label>
+
+              <button class="button" type="submit">Go!</button>
+            </form>
+
+            <ul class="matrix"></ul>
+
+            <ul class="charts">
+              <ul class="physic"></ul>
+              <ul class="energy"></ul>
+              <ul class="emotions"></ul>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <!-- Логотип -->
+      <div class="container">
+        <a href="" class="logo">
+          <!-- <svg width="" height="">
+            <use></use>
+          </svg> -->
+        </a>
+      </div>
+
+      <ul>
+        <li><a href="#tarot">Tarot Reading</a></li>
+        <li><a href="#matrix">Matrix Of Destiny</a></li>
+      </ul>
+    </footer>
+
+    <!-- Login -->
+    <div class="backdrop">
+      <div class="modal">
         <div class="signin">
           <form class="signin-form">
             <label>
@@ -95,76 +162,7 @@
           <button type="button" class="logout-btn">Sign Out</button>
         </div>
       </div>
-    </header>
-
-    <main>
-      <!-- Hero -->
-      <section class="section">
-        <h1 data-piska>Fate Compass</h1>
-      </section>
-
-      <!-- Расклад -->
-      <section class="section" id="tarot">
-        <div class="container">
-          <h2>Расклад</h2>
-
-          <div class="tarot-read hidden">
-            <button class="button tarot-button" type="button">
-              Generate tarot cards
-            </button>
-
-            <ul class="tarot-cards"></ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- Матрица судьбы -->
-      <section class="section" id="matrix">
-        <div class="container">
-          <h2>Матрица судьбы</h2>
-
-          <div class="matrix-read hidden">
-            <form class="matrix-form">
-              <label
-                >Birthday
-                <input
-                  class="birthday"
-                  type="text"
-                  name="birthday"
-                  placeholder="day.month.year"
-                />
-              </label>
-
-              <button class="button" type="submit">Go!</button>
-            </form>
-
-            <ul class="matrix"></ul>
-
-            <ul class="charts">
-              <ul class="physic"></ul>
-              <ul class="energy"></ul>
-              <ul class="emotions"></ul>
-            </ul>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <!-- Логотип -->
-      <div class="container">
-        <a href="" class="logo">
-          <!-- <svg width="" height="">
-            <use></use>
-          </svg> -->
-        </a>
-      </div>
-
-      <ul>
-        <li><a href="#tarot">Tarot Reading</a></li>
-        <li><a href="#matrix">Matrix Of Destiny</a></li>
-      </ul>
-    </footer>
+    </div>
 
     <script type="module" src="./main.js"></script>
   </body>

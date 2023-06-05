@@ -95,6 +95,9 @@ const addToDb = (array) => {
 }
 
 onAuthStateChanged(auth, (user) => {
+    if (user === null)
+        return;
+
     loggedUser = user.email;
     const q = query(readsRef, where('email', '==', loggedUser));
 

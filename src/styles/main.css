@@ -9,6 +9,7 @@
 /* components  */
 
 /* layout */
+@import url('./layout/modal.css');
 @import url('./layout/header.css');
 @import url('./layout/hero.css');
 @import url('./layout/tarot.css');

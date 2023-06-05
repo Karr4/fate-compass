@@ -1,1 +1,4 @@
-/* Стили для хедера */
+.profile-btn {
+  border: none;
+  background-color: transparent;
+}
