@@ -24,12 +24,37 @@ const usersRef = collection(db, 'users');
 let users = [];
 let isVip = false;
 
-const signIn = document.querySelector(".signin-form");
-signIn.addEventListener("submit", (e) => {
+const refs = {
+  signInForm: document.querySelector(".signin-form"),
+  logInForm: document.querySelector(".login-form"),
+  logOut: document.querySelector('.logout'),
+  logOutBtn: document.querySelector('.logout-btn'),
+  tarotRead: document.querySelector('.tarot-read'),
+  matrixRead: document.querySelector('.matrix-read'),
+  logIn: document.querySelector(".login"),
+  signIn: document.querySelector(".signin"),
+  haveAccount: document.querySelector('.have-account'),
+  profileBtn: document.querySelector('.profile-btn'),
+  backdrop: document.querySelector('.backdrop'),
+  closeBtn: document.querySelector('[data-close]'),
+}
+
+const {
+  signInForm, logInForm,
+  logOut, logOutBtn,
+  tarotRead, matrixRead,
+  logIn, signIn,
+  haveAccount,
+  profileBtn,
+  backdrop,
+  closeBtn
+} = refs;
+
+signInForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const email = signIn.email.value;
-  const password = signIn.password.value;
+  const email = signInForm.email.value;
+  const password = signInForm.password.value;
   const vipAccount = Math.random() >= 0.5;
 
   if (password !== signIn.passwordMatch.value)
@@ -44,18 +69,17 @@ signIn.addEventListener("submit", (e) => {
         password: password,
         vipAccount: vipAccount,
       }).then(() => {
-        signIn.reset();
+        signInForm.reset();
       });
     })
     .catch(error => console.log(error.message));
 })
 
-const logIn = document.querySelector(".login-form");
-logIn.addEventListener("submit", (e) => {
+logInForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const email = logIn.email.value;
-  const password = logIn.password.value;
+  const email = logInForm.email.value;
+  const password = logInForm.password.value;
 
   signInWithEmailAndPassword(auth, email, password)
     .then(cred => {
@@ -71,7 +95,7 @@ logIn.addEventListener("submit", (e) => {
           localStorage.setItem("isVip", JSON.stringify(users[0].vipAccount));
         })
       users = [];
-      logIn.reset();
+      logInForm.reset();
     })
     .catch(err => {
       console.log(err.message);
@@ -80,8 +104,6 @@ logIn.addEventListener("submit", (e) => {
   console.log("signed in");
 });
 
-const logOut = document.querySelector('.logout');
-const logOutBtn = document.querySelector('.logout-btn');
 logOutBtn.addEventListener("click", () => {
   signOut(auth)
     .then(() => {
@@ -92,8 +114,6 @@ logOutBtn.addEventListener("click", () => {
     });
 });
 
-const tarotRead = document.querySelector('.tarot-read');
-const matrixRead = document.querySelector('.matrix-read');
 onAuthStateChanged(auth, (user) => {
   const userWelcome = document.querySelector('[data-user]');
   
@@ -102,6 +122,7 @@ onAuthStateChanged(auth, (user) => {
     logOut.classList.remove('hidden');
     logIn.classList.add('hidden');
     signIn.classList.add('hidden');
+    haveAccount.classList.add('hidden');
     
     const timerId = setTimeout(() => {
       // matrixRead.classList.add('hidden');
@@ -118,7 +139,18 @@ onAuthStateChanged(auth, (user) => {
 
   userWelcome.textContent = '';
   logOut.classList.add('hidden');
-
   logIn.classList.remove('hidden');
-  signIn.classList.remove('hidden');
+})
+
+haveAccount.addEventListener('click', () => {
+  logIn.classList.toggle('hidden');
+  signIn.classList.toggle('hidden');
+})
+
+profileBtn.addEventListener('click', () => {
+  backdrop.classList.remove('hidden');
+})
+
+closeBtn.addEventListener('click', () => {
+  backdrop.classList.add('hidden');
 })

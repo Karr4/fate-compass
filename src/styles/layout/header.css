@@ -1,4 +1,32 @@
+header {
+  border-bottom: 1px solid #979797;
+}
+
+.top-line {
+  display: flex;
+  align-items: center;
+}
+
 .profile-btn {
   border: none;
   background-color: transparent;
+}
+
+.site-nav {
+  margin-left: 409px;
+}
+
+.site-nav-list {
+  display: flex;
+  gap: 40px;
+}
+
+.site-nav-list .item {
+  padding-top: 24px;
+  padding-bottom: 24px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
 }

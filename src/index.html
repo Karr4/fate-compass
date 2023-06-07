@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Corben&display=swap"
+      rel="stylesheet"
+    />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
@@ -17,32 +24,49 @@
   <body>
     <header>
       <div class="container">
-        <!-- Логотип, найдём SVG компаса и засунем сюда -->
-        <a href="" class="logo">
-          <!-- <svg width="" height="">
-            <use></use>
-          </svg> -->
-        </a>
+        <div class="top-line">
+          <a href="" class="logo">
+            Logo
+            <!-- <svg width="" height="">
+              <use></use>
+            </svg> -->
+          </a>
 
-        <!-- Навигация по сайту, вкладки разные, может придумаем что засунуть -->
-        <nav>
-          <ul>
-            <li><button class="profile-btn" type="button">Profile</button></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-          </ul>
-        </nav>
+          <nav class="site-nav">
+            <ul class="site-nav-list">
+              <li class="item">
+                <button class="profile-btn" type="button">Profile</button>
+              </li>
+              <li class="item"><a href="#tarot">Tarot Reading</a></li>
+              <li class="item"><a href="#matrix">Fate Matrix</a></li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </header>
 
     <main>
       <!-- Hero -->
       <section class="section">
-        <h1 data-piska>Fate Compass</h1>
+        <div class="container">
+          <div class="hero">
+            <div class="hero-info">
+              <h1 class="hero-title" data-piska>Fate Compass</h1>
+              <p class="hero-text">
+                Explore yourself. Get your personal destiny analysis now.
+              </p>
+            </div>
+
+            <img
+              src="./img/hero-image.jpg"
+              alt="person meditating"
+              width="480"
+            />
+          </div>
+        </div>
       </section>
 
-      <!-- Расклад -->
+      <!-- Tarot Reading -->
       <section class="section" id="tarot">
         <div class="container">
           <h2>Tarot Reading</h2>
@@ -57,22 +81,20 @@
         </div>
       </section>
 
-      <!-- Матрица судьбы -->
+      <!-- Fate Matrix  -->
       <section class="section" id="matrix">
         <div class="container">
           <h2>Fate Matrix</h2>
 
           <div class="matrix-read hidden">
             <form class="matrix-form">
-              <label
-                >Birthday
-                <input
-                  class="birthday"
-                  type="text"
-                  name="birthday"
-                  placeholder="day.month.year"
-                />
-              </label>
+              <label for="birthday">Birthday </label>
+              <input
+                class="birthday"
+                type="text"
+                name="birthday"
+                placeholder="day.month.year"
+              />
 
               <button class="button" type="submit">Go!</button>
             </form>
@@ -105,62 +127,63 @@
       </ul>
     </footer>
 
-    <!-- Login -->
-    <div class="backdrop">
+    <!-- Login Modal -->
+    <div class="backdrop hidden">
       <div class="modal">
-        <div class="signin">
-          <form class="signin-form">
-            <label>
-              Email
-              <input type="email" name="email" placeholder="Email..." />
-            </label>
-
-            <label>
-              Password
-              <input
-                type="password"
-                name="password"
-                placeholder="Password..."
-              />
-            </label>
-
-            <label>
-              Password
-              <input
-                type="password"
-                name="passwordMatch"
-                placeholder="Retype your password..."
-              />
-            </label>
-
-            <button type="submit">Create Account</button>
-          </form>
-        </div>
+        <button type="button" data-close>Close</button>
 
         <div class="login">
           <form class="login-form">
-            <label>
-              Email
-              <input type="email" name="email" placeholder="Email..." />
-            </label>
+            <h2 class="form-header">Log in</h2>
 
-            <label>
-              Password
-              <input
-                type="password"
-                name="password"
-                placeholder="Password..."
-              />
-            </label>
+            <label for="email"> Email </label>
+            <input
+              type="email"
+              name="email"
+              placeholder="something@example.com"
+            />
 
-            <button type="submit">Sign In</button>
+            <label for="password"> Password </label>
+            <input type="password" name="password" placeholder="******" />
+
+            <button class="submit-btn" type="submit">Sign In</button>
           </form>
         </div>
 
-        <div class="logout">
-          <p data-user></p>
+        <div class="signin hidden">
+          <form class="signin-form">
+            <h2 class="form-header">Sign in</h2>
+
+            <label for="email"> Email </label>
+            <input
+              type="email"
+              name="email"
+              placeholder="something@example.com"
+            />
+
+            <label for="password"> Password </label>
+            <input type="password" name="password" placeholder="******" />
+
+            <label for="passwordMatch"> Password </label>
+            <input
+              type="password"
+              name="passwordMatch"
+              placeholder="Retype your password..."
+            />
+
+            <button class="submit-btn" type="submit">Create Account</button>
+          </form>
+        </div>
+
+        <div class="logout hidden">
+          <h2 data-user></h2>
           <button type="button" class="logout-btn">Sign Out</button>
         </div>
+
+        <p class="have-account">
+          Already have an
+          <button type="button">account</button>
+        </p>
       </div>
     </div>
 

@@ -1,0 +1,26 @@
+.hero {
+  display: flex;
+  justify-content: center;
+  gap: 90px;
+}
+
+.hero-info {
+  padding-top: 60px;
+}
+
+.hero-title {
+  width: 420px;
+
+  margin-bottom: 44px;
+
+  font-size: 64px;
+  line-height: 1.1;
+  letter-spacing: 0.15em;
+}
+
+.hero-text {
+  width: 520px;
+
+  font-size: 32px;
+  line-height: 59px;
+}

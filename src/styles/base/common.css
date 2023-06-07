@@ -20,3 +20,31 @@
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+label {
+  margin-bottom: 8px;
+}
+
+input {
+  padding-top: 16px;
+  padding-left: 16px;
+  padding-bottom: 16px;
+
+  outline: none;
+  border: 1px solid #d7d7d7;
+  border-radius: 4px;
+}
+
+.submit-btn {
+  height: 50px;
+
+  margin-bottom: 16px;
+}
+
+.hidden {
+  display: none;
+}
+
+.section {
+  padding-top: 120px;
+}
