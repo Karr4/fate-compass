@@ -40,6 +40,7 @@ refs.startBtn.addEventListener("click", (e) => {
     // Adding the read to the DB
     addToDb(cards);
 
+    refs.startBtn.style.marginBottom = '50px';
     // Createing the markup
     markupCreator(cards);
 });
@@ -56,8 +57,8 @@ const markupCreator = (array) => {
     const cardsDescriptionMarkup = array.map(({ name, meaning_up, meaning_rev }) => 
             `<li class="item">
                 <h3>${name}</h3>
-                <p><span>Meaning up:</span> ${meaning_up}</p>
-                <p><span>Meaning reversed:</span> ${meaning_rev}</p>
+                <p><b>Meaning up:</b> ${meaning_up}</p>
+                <p><b>Meaning reversed:</b> ${meaning_rev}</p>
             </li>`
     ).join("");
     refs.tarotDescr.insertAdjacentHTML("beforeend", cardsDescriptionMarkup);
