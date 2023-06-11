@@ -1,0 +1,58 @@
+.section-descr {
+  margin-bottom: 70px;
+  padding-left: 24px;
+  padding-right: 24px;
+
+  font-size: 24px;
+  line-height: 1.8;
+}
+
+.tarot-image {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tarot-read {
+  text-align: center;
+}
+
+.tarot-button {
+  margin-top: 30px;
+  padding: 8px 32px;
+
+  font-size: 32px;
+  line-height: 1.125;
+
+  color: #e6dbfe;
+
+  background-color: #af8cfc;
+  border: 1px solid #e6dbfe;
+  border-radius: 35px;
+}
+
+.tarot-button:hover {
+  background-color: #6a45b9;
+}
+
+.tarot-cards {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin-top: -24px;
+  margin-left: -48px;
+}
+
+.tarot-cards .item {
+  margin-top: 24px;
+  margin-left: 48px;
+}
+
+.card-name {
+  text-align: center;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.cards-descr .item {
+  text-align: start;
+}

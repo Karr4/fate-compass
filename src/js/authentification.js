@@ -115,6 +115,10 @@ logOutBtn.addEventListener("click", () => {
 });
 
 onAuthStateChanged(auth, (user) => {
+  
+  if (user === null)
+    localStorage.removeItem('isVip');
+
   const userWelcome = document.querySelector('[data-user]');
   
   if (user !== null) {

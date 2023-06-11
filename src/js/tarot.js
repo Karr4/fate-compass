@@ -1,5 +1,4 @@
-import { prevStuffDestroyer } from './preveous-stuff-destroyer';
-import { getCards } from './cards.js';
+import { getRandomCards } from './random-card.js'
 // firebase
 import { initializeApp } from 'firebase/app'
 import { getFirestore, collection, getDocs, query, where, addDoc } from 'firebase/firestore';
@@ -27,35 +26,41 @@ let loggedUser;
 const refs = {
     startBtn: document.querySelector(".tarot-button"),
     tarotRead: document.querySelector(".tarot-cards"),
+    tarotDescr: document.querySelector(".cards-descr"),
 }
 
 refs.startBtn.addEventListener("click", (e) => {
     // Removing preveous read
-    const prevCards = document.querySelectorAll(`[data-card]`)
-    prevStuffDestroyer(prevCards);
+    refs.tarotRead.innerHTML = '';
+    refs.tarotDescr.innerHTML = '';
 
-    // Fetching cards from the api
-    getCards()
-        .then(( { cards } ) => {
-            // Adding this read to the DB
-            addToDb(cards);
-            // Adding cards to the page
-            markupCreator(cards);
-        })
-        .catch(error => console.log(error.message));  
+    // Getting random cards
+    const cards = getRandomCards();
+
+    // Adding the read to the DB
+    addToDb(cards);
+
+    // Createing the markup
+    markupCreator(cards);
 });
 
 const markupCreator = (array) => {
-    const markup = array.map(element => 
-        `<li class="tarot__card" data-card>
-            <div>
-                <h3>${element.name}</h3>
-                <p><span>Meaning up:</span> ${element.meaning_up}</p>
-                <p><span>Meaning reversed:</span> ${element.meaning_rev}</p>
-            </div>
-        </li>`
+    const cardsMarkup = array.map(({ pic, name }) => 
+            `<li class="item">
+                <img width="360" src="${pic}" alt="${name}"/>
+                <p class="card-name">${name}</p>
+            </li>`
     ).join("");
-    refs.tarotRead.insertAdjacentHTML("beforeend", markup); 
+    refs.tarotRead.insertAdjacentHTML("beforeend", cardsMarkup);
+
+    const cardsDescriptionMarkup = array.map(({ name, meaning_up, meaning_rev }) => 
+            `<li class="item">
+                <h3>${name}</h3>
+                <p><span>Meaning up:</span> ${meaning_up}</p>
+                <p><span>Meaning reversed:</span> ${meaning_rev}</p>
+            </li>`
+    ).join("");
+    refs.tarotDescr.insertAdjacentHTML("beforeend", cardsDescriptionMarkup);
 }
 
 const addToDb = (array) => {
