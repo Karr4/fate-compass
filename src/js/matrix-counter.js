@@ -21,7 +21,7 @@ export const matrixCounter = (day, month, year) => {
     const centerYearBottom = mod(center + yearBottom);
     const centerBottomDay = mod(center + bottomDay);
 
-    const dayCenterDay = mod(day + centerDay);
+    const dayCenterDay = mod(day + centerDay);  
     const monthCenterMonth = mod(month + centerMonth);
     const yearCenterYear = mod(year + centerYear);
     const bottomCenterBottom = mod(bottom + centerBottom);

@@ -3,20 +3,28 @@ import { mod } from "./mod";
 import { matrixCounter } from "./matrix-counter";
 import { healthChart } from "./health-chart";
 
-const matrix = document.querySelector("ul.matrix");
-const matrixForm = document.querySelector(".matrix-form");
-const physicChart = document.querySelector('.physic');
-const energyChart = document.querySelector('.energy');
-const emotionsChart = document.querySelector('.emotions');
+const refs = {
+    matrix: document.querySelector(".matrix"),
+    matrixForm: document.querySelector(".matrix-form"),
+    physicChart: document.querySelector('.physic'),
+    energyChart: document.querySelector('.energy'),
+    emotionsChart: document.querySelector('.emotions'),
+    matrixShit: document.querySelector(".matrix-data"),
+}
+
+const {
+    matrix, matrixForm, physicChart, energyChart, emotionsChart, matrixShit
+} = refs;
 
 matrixForm.addEventListener("submit", (event) => {
     event.preventDefault();
+
+    matrixShit.classList.remove('hidden');
 
     // Removing the previous matrix from the page
     const prevMatrix = document.querySelectorAll(`[data-delete]`);
     prevStuffDestroyer(prevMatrix);
     
-
     let date = matrixForm.birthday.value.split(".");  
 
     const day = mod(parseInt(date[0]));
@@ -27,7 +35,7 @@ matrixForm.addEventListener("submit", (event) => {
     const matrixData = matrixCounter(day, month, year);
     const healthChartData = healthChart(matrixData);
 
-    // Adding matrix to the page
+    // Adding data to the page
     matrixMarkupCreator(matrixData);
     healthChartMarkupCreator(healthChartData);
 });
