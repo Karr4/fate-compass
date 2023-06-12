@@ -1,0 +1,19 @@
+.charts {
+  position: absolute;
+  top: 100px;
+  left: 55px;
+
+  display: flex;
+}
+
+.physic {
+  margin-right: 80px;
+}
+
+.energy {
+  margin-right: 73px;
+}
+
+.chart__element {
+  margin-bottom: 54px;
+}

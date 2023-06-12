@@ -8,6 +8,8 @@
 
 /* components  */
 @import url('./components/buttons.css');
+@import url('./components/matrix-nums.css');
+@import url('./components/chart-nums.css');
 
 /* layout */
 @import url('./layout/modal.css');

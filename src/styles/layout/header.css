@@ -13,18 +13,18 @@ header {
 }
 
 .site-nav {
-  margin-left: 409px;
+  margin-left: 390px;
 }
 
 .site-nav-list {
   display: flex;
-  gap: 40px;
+  gap: 60px;
 }
 
 .site-nav-list .item {
   padding-top: 24px;
   padding-bottom: 24px;
 
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 24px;
+  line-height: 28px;
 }

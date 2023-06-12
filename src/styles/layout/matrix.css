@@ -1,0 +1,39 @@
+.matrix-section-descr {
+  width: 895px;
+
+  margin-bottom: 30px;
+
+  font-size: 36px;
+  line-height: 67px;
+}
+
+.questions {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+  margin-top: -8px;
+  margin-left: -16px;
+
+  height: 160px;
+}
+
+.question {
+  margin-top: 8px;
+  margin-left: 16px;
+
+  font-size: 32px;
+  line-height: 59px;
+}
+
+.matrix-chart {
+  position: relative;
+}
+
+.matrix-images {
+  display: flex;
+}
+
+.health-chart {
+  position: relative;
+}
