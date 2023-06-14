@@ -26,19 +26,27 @@
 
   color: #e6dbfe;
 
-  background-color: #af8cfc;
+  background: var(--button-bgc);
   border: 1px solid #e6dbfe;
   border-radius: 35px;
+
+  transition: background 250ms var(--animation);
 }
 
 .tarot-button:hover {
-  background-color: #6a45b9;
+  background: var(--button-hover);
 }
 
 .see-previous {
   color: #00f;
 
   background-color: transparent;
+
+  transition: color 250ms var(--animation);
+}
+
+.see-previous:hover {
+  color: #6a45b9;
 }
 
 .tarot-cards {

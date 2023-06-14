@@ -42,6 +42,7 @@ footer .container {
 }
 
 .socials {
+  margin-top: -20px;
   margin-left: 200px;
 
   font-style: normal;
@@ -52,4 +53,33 @@ footer .container {
 
   font-size: 24px;
   line-height: 28px;
+}
+
+.socials-list {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.socials-list .item {
+  width: 40px;
+}
+
+.social {
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 100%;
+  background-color: #af8cfc;
+
+  fill: #e7e9fc;
+
+  transition: background-color 250ms var(--animation);
+}
+
+.social:hover {
+  background-color: #6a45b9;
 }

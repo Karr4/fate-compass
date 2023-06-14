@@ -63,13 +63,13 @@
   line-height: 1.125;
 
   color: #e6dbfe;
-  background-color: #af8cfc;
+  background: var(--button-bgc);
   border: 1px solid #e6dbfe;
   border-radius: 35px;
 }
 
 .matrix-form .button:hover {
-  background-color: #6a45b9;
+  background: var(--button-hover);
 }
 
 .matrix-data {
