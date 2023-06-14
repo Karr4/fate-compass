@@ -1,5 +1,5 @@
-.backdrop {
-  position: absolute;
+.auth-backdrop {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -9,10 +9,12 @@
   justify-content: center;
   align-items: center;
 
+  overflow-y: scroll;
+
   background-color: rgba(46, 47, 66, 0.4);
 }
 
-.modal {
+.auth-modal {
   position: absolute;
 
   width: 408px;
@@ -28,15 +30,8 @@
   border-radius: 4px;
 }
 
-.backdrop.hidden {
+.auth-backdrop.hidden {
   display: none;
-}
-
-[data-close] {
-  position: absolute;
-
-  top: 24px;
-  right: 24px;
 }
 
 .form-header {

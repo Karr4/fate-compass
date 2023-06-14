@@ -35,6 +35,12 @@
   background-color: #6a45b9;
 }
 
+.see-previous {
+  color: #00f;
+
+  background-color: transparent;
+}
+
 .tarot-cards {
   display: flex;
   flex-wrap: wrap;

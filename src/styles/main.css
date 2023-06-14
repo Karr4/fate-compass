@@ -10,9 +10,11 @@
 @import url('./components/buttons.css');
 @import url('./components/matrix-nums.css');
 @import url('./components/chart-nums.css');
+@import url('./components/sky-smth-nums.css');
 
 /* layout */
-@import url('./layout/modal.css');
+@import url('./layout/auth-modal.css');
+@import url('./layout/reads-modal.css');
 @import url('./layout/header.css');
 @import url('./layout/hero.css');
 @import url('./layout/tarot.css');

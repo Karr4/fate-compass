@@ -22,9 +22,9 @@ const auth = getAuth();
 const usersRef = collection(db, 'users');
 
 let users = [];
-let isVip = false;
 
 const refs = {
+  body: document.querySelector("body"),
   signInForm: document.querySelector(".signin-form"),
   logInForm: document.querySelector(".login-form"),
   logOut: document.querySelector('.logout'),
@@ -35,11 +35,12 @@ const refs = {
   signIn: document.querySelector(".signin"),
   haveAccount: document.querySelector('.have-account'),
   profileBtn: document.querySelector('.profile-btn'),
-  backdrop: document.querySelector('.backdrop'),
-  closeBtn: document.querySelector('[data-close]'),
+  backdrop: document.querySelector('.auth-backdrop'),
+  closeBtn: document.querySelector('[data-close="1"]'),
 }
 
 const {
+  body,
   signInForm, logInForm,
   logOut, logOutBtn,
   tarotRead, matrixRead,
@@ -55,7 +56,6 @@ signInForm.addEventListener("submit", (e) => {
 
   const email = signInForm.email.value;
   const password = signInForm.password.value;
-  const vipAccount = Math.random() >= 0.5;
 
   if (password !== signIn.passwordMatch.value)
     return signIn.reset();
@@ -67,7 +67,6 @@ signInForm.addEventListener("submit", (e) => {
       addDoc(usersRef, {
         email: email.toLowerCase(),
         password: password,
-        vipAccount: vipAccount,
       }).then(() => {
         signInForm.reset();
       });
@@ -92,7 +91,6 @@ logInForm.addEventListener("submit", (e) => {
           snapshot.docs.forEach(doc => {
             users.push({ ...doc.data() });
           })
-          localStorage.setItem("isVip", JSON.stringify(users[0].vipAccount));
         })
       users = [];
       logInForm.reset();
@@ -115,9 +113,6 @@ logOutBtn.addEventListener("click", () => {
 });
 
 onAuthStateChanged(auth, (user) => {
-  
-  if (user === null)
-    localStorage.removeItem('isVip');
 
   const userWelcome = document.querySelector('[data-user]');
   
@@ -127,23 +122,13 @@ onAuthStateChanged(auth, (user) => {
     logIn.classList.add('hidden');
     signIn.classList.add('hidden');
     haveAccount.classList.add('hidden');
-    
-    const timerId = setTimeout(() => {
-      // matrixRead.classList.add('hidden');
-      // tarotRead.classList.add('hidden');
-      isVip = localStorage.getItem('isVip');
-      if (isVip) {
-        matrixRead.classList.remove('hidden');
-        tarotRead.classList.remove('hidden');
-      }
-    }, 1000);
-    
     return;
   }
 
   userWelcome.textContent = '';
   logOut.classList.add('hidden');
   logIn.classList.remove('hidden');
+  haveAccount.classList.remove('hidden');
 })
 
 haveAccount.addEventListener('click', () => {
@@ -152,9 +137,11 @@ haveAccount.addEventListener('click', () => {
 })
 
 profileBtn.addEventListener('click', () => {
+  body.style.overflow = 'hidden';
   backdrop.classList.remove('hidden');
 })
 
 closeBtn.addEventListener('click', () => {
+  body.style.overflow = 'scroll';
   backdrop.classList.add('hidden');
 })

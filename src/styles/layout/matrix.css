@@ -3,7 +3,7 @@
 
   margin-bottom: 30px;
 
-  font-size: 36px;
+  font-size: 28px;
   line-height: 67px;
 }
 
@@ -22,7 +22,7 @@
   margin-top: 8px;
   margin-left: 16px;
 
-  font-size: 32px;
+  font-size: 24px;
   line-height: 59px;
 }
 
@@ -35,5 +35,47 @@
 }
 
 .health-chart {
+  position: relative;
+}
+
+.matrix-form {
+  width: 400px;
+
+  display: flex;
+  flex-direction: column;
+
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.matrix-label {
+  margin-bottom: 16px;
+}
+
+.birthday {
+  margin-bottom: 16px;
+}
+
+.matrix-form .button {
+  padding: 8px 32px;
+
+  font-size: 32px;
+  line-height: 1.125;
+
+  color: #e6dbfe;
+  background-color: #af8cfc;
+  border: 1px solid #e6dbfe;
+  border-radius: 35px;
+}
+
+.matrix-form .button:hover {
+  background-color: #6a45b9;
+}
+
+.matrix-data {
+  margin-top: 56px;
+}
+
+.sky-smth {
   position: relative;
 }

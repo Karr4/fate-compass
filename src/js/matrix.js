@@ -2,6 +2,8 @@ import { prevStuffDestroyer } from './preveous-stuff-destroyer';
 import { mod } from "./mod";
 import { matrixCounter } from "./matrix-counter";
 import { healthChart } from "./health-chart";
+import { skySmthCounter } from "./sky-smth-counter";
+
 
 const refs = {
     matrix: document.querySelector(".matrix"),
@@ -10,14 +12,22 @@ const refs = {
     energyChart: document.querySelector('.energy'),
     emotionsChart: document.querySelector('.emotions'),
     matrixShit: document.querySelector(".matrix-data"),
+    skySmth: document.querySelector('.sky-smth-list'),
 }
 
 const {
-    matrix, matrixForm, physicChart, energyChart, emotionsChart, matrixShit
+    matrix, matrixForm, physicChart, energyChart, emotionsChart, matrixShit, skySmth
 } = refs;
 
 matrixForm.addEventListener("submit", (event) => {
     event.preventDefault();
+
+    const value = matrixForm.birthday.value.trim()
+
+    if (!value) {
+        matrixForm.reset();
+        return;
+    }
 
     matrixShit.classList.remove('hidden');
 
@@ -25,7 +35,7 @@ matrixForm.addEventListener("submit", (event) => {
     const prevMatrix = document.querySelectorAll(`[data-delete]`);
     prevStuffDestroyer(prevMatrix);
     
-    let date = matrixForm.birthday.value.split(".");  
+    let date = value.split(".");  
 
     const day = mod(parseInt(date[0]));
     const month = mod(parseInt(date[1]));
@@ -34,10 +44,12 @@ matrixForm.addEventListener("submit", (event) => {
     // Counting new matrix
     const matrixData = matrixCounter(day, month, year);
     const healthChartData = healthChart(matrixData);
+    const skySmthData = skySmthCounter(matrixData);
 
     // Adding data to the page
     matrixMarkupCreator(matrixData);
     healthChartMarkupCreator(healthChartData);
+    skySmthMarkupCreator(skySmthData);
 });
 
 const matrixMarkupCreator = (array) => {
@@ -68,5 +80,15 @@ const healthChartMarkupCreator = ({ physic, energy, emotions }) => {
             <p>${element}</p>
         </li>`).join('');
     emotionsChart.insertAdjacentHTML('beforeend', emotionsMarkup);
+}
+
+const skySmthMarkupCreator = (array) => {
+    const markup = array.map(element => 
+        `<li class="sky__item" data-delete>
+            <p>${element}</p>
+        </li>`
+    ).join("");
+
+    skySmth.insertAdjacentHTML("beforeend", markup); 
 }
 

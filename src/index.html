@@ -26,10 +26,9 @@
       <div class="container">
         <div class="top-line">
           <a href="" class="logo">
-            Logo
-            <!-- <svg width="" height="">
-              <use></use>
-            </svg> -->
+            <svg width="64" height="64">
+              <use href="./img/icons.svg#logo"></use>
+            </svg>
           </a>
 
           <nav class="site-nav">
@@ -83,7 +82,7 @@
             alt="Deck of tarot cards"
           />
 
-          <div class="tarot-read hidden">
+          <div class="tarot-read">
             <button class="button tarot-button" type="button">
               Generate tarot cards
             </button>
@@ -92,7 +91,9 @@
 
             <ul class="cards-descr"></ul>
 
-            <!-- <div class="tarot-cards"></div> -->
+            <button class="see-previous" type="button">
+              See previous tarot readings
+            </button>
           </div>
         </div>
       </section>
@@ -119,9 +120,9 @@
             <li class="question">Finance</li>
           </ol>
 
-          <div class="matrix-read hidden">
+          <div class="matrix-read">
             <form class="matrix-form">
-              <label for="birthday">Birthday </label>
+              <label class="matrix-label" for="birthday">Birthday </label>
               <input
                 class="birthday"
                 type="text"
@@ -153,6 +154,12 @@
                   </div>
                 </div>
               </div>
+
+              <div class="sky-smth">
+                <img width="440" src="./img/skysmth.jpg" alt="Sky something" />
+
+                <ul class="sky-smth-list"></ul>
+              </div>
             </div>
           </div>
         </div>
@@ -162,23 +169,43 @@
     <footer>
       <!-- Логотип -->
       <div class="container">
-        <a href="" class="logo">
-          <!-- <svg width="" height="">
-            <use></use>
-          </svg> -->
-        </a>
-      </div>
+        <div class="company-info">
+          <a href="" class="logo">
+            <svg width="64" height="64">
+              <use href="./img/icons.svg#logo"></use>
+            </svg>
+          </a>
 
-      <ul>
-        <li><a href="#tarot">Tarot Reading</a></li>
-        <li><a href="#matrix">Matrix Of Destiny</a></li>
-      </ul>
+          <p class="footer-text">Feel the ancient art of card reading</p>
+        </div>
+
+        <div class="navigation">
+          <p class="nav-text">Navigation</p>
+          <ul>
+            <li class="item"><a href="#tarot">Tarot Reading</a></li>
+            <li class="item"><a href="#matrix">Destiny Matrix</a></li>
+          </ul>
+        </div>
+
+        <address class="socials">
+          <p class="socials-text">Social media</p>
+          <ul class="socials-list">
+            <li class="item">facebook</li>
+            <li class="item">instagram</li>
+            <li class="item">twitter</li>
+          </ul>
+        </address>
+      </div>
     </footer>
 
     <!-- Login Modal -->
-    <div class="backdrop hidden">
-      <div class="modal">
-        <button type="button" data-close>Close</button>
+    <div class="auth-backdrop hidden">
+      <div class="auth-modal">
+        <button type="button" data-close="1">
+          <svg width="24" height="24">
+            <use href="./img/icons.svg#cross"></use>
+          </svg>
+        </button>
 
         <div class="login">
           <form class="login-form">
@@ -235,6 +262,18 @@
       </div>
     </div>
 
+    <!-- Previous reads modal -->
+    <div class="reads-backdrop hidden">
+      <div class="reads-modal">
+        <button type="button" data-close="2">
+          <svg width="24" height="24">
+            <use href="./img/icons.svg#cross"></use>
+          </svg>
+        </button>
+
+        <ul class="prev-reads"></ul>
+      </div>
+    </div>
     <script type="module" src="./main.js"></script>
   </body>
 </html>
